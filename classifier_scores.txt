@@ -1,0 +1,311 @@
+SCORES
+
+18-8-1
+using small data set, 4000 of each class, unless mentioned otherwise
+
+2 classes, doc2vec with class labels, logistic regression, classifier_binary_method.py
+f1 0.2701342281879195
+recall 0.20277078085642317
+accuracy 0.7269303201506592
+precision 0.4045226130653266
+confusion_matrix
+ [[ 161  633]
+ [ 237 2155]]
+
+40000 samples, 2 classes, doc2vec with class labels, logistic regression, classifier_binary_method.py
+add results here!
+
+
+4 classes, doc2vec with class labels, one vs all linear svc, classifier_binary_method.py
+f1 0.39119363608925173
+recall 0.40423325126181026
+accuracy 0.40426867545511613
+precision 0.40398792248486937
+confusion_matrix
+ [[184 218 225 167]
+ [ 52 429 238  80]
+ [ 56 238 440  60]
+ [198 191 175 235]]
+
+4 classes, tfidf, crossval f1, linear svc, test_classifiers.py
+[0.7908717  0.77557791 0.79276426 0.7854127  0.80217212 0.79402512
+ 0.78997719 0.80177198 0.78287768 0.78110178 0.78704545 0.78432245
+ 0.78803034 0.79715996 0.79807926 0.79288028 0.78457441 0.79060632
+ 0.78622385 0.78738295 0.7907314  0.7931975  0.7851118  0.79708829
+ 0.78921594]
+
+4 classes, tfidf, crossval f1, one vs all linear svc, test_classifiers.py
+[0.7908717  0.77557791 0.79276426 0.7854127  0.80217212 0.79402512
+ 0.78997719 0.80177198 0.78287768 0.78110178 0.78704545 0.78432245
+ 0.78803034 0.79715996 0.79807926 0.79288028 0.78457441 0.79060632
+ 0.78622385 0.78738295 0.7907314  0.7931975  0.7851118  0.79708829
+ 0.78921594]
+
+2 classes (methods, other) tfidf, logistic regression, test_classifiers.py
+f1 0.933421226104153
+recall 0.8916876574307305
+accuracy 0.9682988072818581
+precision 0.979253112033195
+confusion_matrix
+ [[ 708   86]
+ [  15 2377]]
+
+4 classes (methods, other) tfidf, logistic regression, test_classifiers.py
+f1 0.8038682095998643
+recall 0.8052272519490673
+accuracy 0.805398618957941
+precision 0.8082894588009413
+confusion_matrix
+ [[462  54   7 271]
+ [ 26 760   4   9]
+ [ 12   8 730  44]
+ [154  14  17 614]]
+
+40000 samples, 2 classes, tfidf, logistic regression, test_classifiers.py
+f1 0.935408560311284
+recall 0.9051204819277109
+accuracy 0.9686753050698201
+precision 0.9677938808373591
+confusion_matrix
+ [[1803  189]
+ [  60 5897]]
+
+20000 samples, 2 classes, tfdidf iterating through 3 models
+('sgd', SGDClassifier(alpha=0.0001, average=False, class_weight=None, epsilon=0.1,
+       eta0=0.0, fit_intercept=True, l1_ratio=0.15,
+       learning_rate='optimal', loss='hinge', max_iter=None, n_iter=None,
+       n_jobs=1, penalty='l2', power_t=0.5, random_state=None,
+       shuffle=True, tol=None, verbose=0, warm_start=False))
+f1 0.9365750528541227
+recall 0.892245720040282
+accuracy 0.9698870765370138
+precision 0.985539488320356
+confusion_matrix
+ [[ 886  107]
+ [  13 2979]]
+
+('bnb', BernoulliNB(alpha=1.0, binarize=0.0, class_prior=None, fit_prior=True))
+f1 0.856746765249538
+recall 0.9335347432024169
+accuracy 0.9222082810539524
+precision 0.7916310845431256
+confusion_matrix
+ [[ 927   66]
+ [ 244 2748]]
+
+('svcl', SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False))
+f1 0.9422875131164742
+recall 0.904330312185297
+accuracy 0.972396486825596
+precision 0.9835706462212487
+confusion_matrix
+ [[ 898   95]
+ [  15 2977]]
+
+2018-8-2
+
+40000 samples, 2 classes, doc2vec with class labels (train data generated with infer_vector), window = 100, vector_size = 10 logistic regression, classifier_binary_method.py
+0.1268598277212216
+0.08132530120481928
+0.7194615674927664
+0.28825622775800713
+[[ 162 1830]
+ [ 400 5557]]
+
+40000 samples, 2 classes, doc2vec with class labels (train data generated with infer_vector), window = 10, vector_size = 100 logistic regression, classifier_binary_method.py
+0.8157449891330597
+0.8478915662650602
+0.9040130834067178
+0.7859469520707306
+[[1689  303]
+ [ 460 5497]]
+
+40000 samples, 2 classes, doc2vec with uniq ids, window = 10, vector_size = 100, logistic regression, test_gensim.ipynb
+f1 0.8096421471172962
+recall 0.8177710843373494
+accuracy 0.9036356774437037
+precision 0.8016732283464567
+[[1629  363]
+ [ 403 5554]]
+
+and same thing as above, but with 50 epochs instead of 20 
+f1 0.7943458980044344
+recall 0.7193775100401606
+accuracy 0.9066549251478173
+precision 0.8867574257425742
+[[1433  559]
+ [ 183 5774]]
+
+40000 samples, 2 classes, doc2vec with uniq ids, generate train data with infer_vector, window = 10, vector_size = 100, logistic regression, test_gensim.ipynb
+f1 0.8531538269758165
+recall 0.8589357429718876
+accuracy 0.9259026292615423
+precision 0.8474492322932144
+[[1711  281]
+ [ 308 5649]]
+
+same thing, but with 50 epochs
+f1 0.8622902270483712
+recall 0.8770080321285141
+accuracy 0.9298024908793558
+precision 0.8480582524271845
+[[1747  245]
+ [ 313 5644]]
+
+2018-8-6
+all data below now using train-validate dataset I made, this uses oldest documents, 10000 of each class
+here's the saved model: model.save("doc2vec_uniqueid.model")
+2 classes, doc2vec with uniq ids, window = 10, vector_size = 100, logistic regression, test_gensim.ipynb
+f1 0.6505763688760807
+recall 0.675392670157068
+accuracy 0.8600894273763162
+precision 0.6275191104933981
+[[ 903  434]
+ [ 536 5060]]
+
+            precision    recall  f1-score   support
+
+     method       0.63      0.68      0.65      1337
+      other       0.92      0.90      0.91      5596
+
+avg / total       0.86      0.86      0.86      6933
+
+and generate train data with infer_vector:
+here's the model: model.save("doc2vec_uniqueid_retrained.model")
+f1 0.6800148312940305
+recall 0.6858638743455497
+accuracy 0.8755228616760421
+precision 0.674264705882353
+[[ 917  420]
+ [ 443 5153]]
+
+             precision    recall  f1-score   support
+
+     method       0.67      0.69      0.68      1337
+      other       0.92      0.92      0.92      5596
+
+avg / total       0.88      0.88      0.88      6933
+
+misclassified examples:
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2915035/
+
+2 classes, doc2vec with class labels (train data generated with infer_vector), window = 10, vector_size = 100, logistic regression, test_gensim.ipynb
+model.save("doc2vec_classid.model")
+[[ 798  539]
+ [ 399 5197]]
+             precision    recall  f1-score   support
+
+     method       0.67      0.60      0.63      1337
+      other       0.91      0.93      0.92      5596
+
+avg / total       0.86      0.86      0.86      6933
+
+
+40000 samples, train_val data, tfidf, logistic regression test_classifiers.py
+f1 0.9378834355828221
+recall 0.9147344801795063
+accuracy 0.9766334919948074
+precision 0.962234461054288
+confusion_matrix
+ [[1223  114]
+ [  48 5548]]
+             precision    recall  f1-score   support
+
+     method       0.96      0.91      0.94      1337
+      other       0.98      0.99      0.99      5596
+
+avg / total       0.98      0.98      0.98      6933
+
+
+40000 samples, train_val data, tfidf, svm linear kernel test_classifiers.py
+f1 0.9466918714555764
+recall 0.9364248317127898
+accuracy 0.9796624837732584
+precision 0.9571865443425076
+confusion_matrix
+ [[1252   85]
+ [  56 5540]]
+             precision    recall  f1-score   support
+
+     method       0.96      0.94      0.95      1337
+      other       0.98      0.99      0.99      5596
+
+avg / total       0.98      0.98      0.98      6933
+
+
+18-8-7
+40000 samples, train_val data, tfidf, title feature, logistic regression test_classifiers.py
+             precision    recall  f1-score   support
+
+     method       0.97      0.93      0.95      1337
+      other       0.98      0.99      0.99      5596
+
+avg / total       0.98      0.98      0.98      6933
+
+40000 samples, train_val data, tfidf, title feature, svm linear test_classifiers.py
+             precision    recall  f1-score   support
+
+     method       0.96      0.96      0.96      1337
+      other       0.99      0.99      0.99      5596
+
+avg / total       0.98      0.98      0.98      6933
+
+40000 samples, train_val data, tfidf, 4-ngrams, title feature, svm linear test_classifiers.py
+             precision    recall  f1-score   support
+
+     method       0.97      0.97      0.97      1337
+      other       0.99      0.99      0.99      5596
+
+avg / total       0.99      0.99      0.99      6933
+
+18-8-8
+40000 samples, train_val data, tfidf, title feature, stratified cv 5fold 1rep, svm linear test_classifiers.py
+'test_f1_macro': array([0.97100691, 0.96840244, 0.96830171, 0.96901639, 0.9643837 ]), 
+'test_precision_macro': array([0.97923949, 0.97982218, 0.97846183, 0.97880982, 0.97324608]), 
+'test_recall_macro': array([0.963436  , 0.95821065, 0.95913006, 0.96014426, 0.95629389]), 
+'test_accuracy': array([0.97842558, 0.97662771, 0.97649929, 0.97701297, 0.97353886]), 
+
+18-8-9
+newest data!
+40000 samples, test_new data, tfidf, 3-ngrams, title feature, svm linear classifier_svcl_test_new_pubs
+     method       0.96      0.87      0.91      9945
+      other       0.96      0.99      0.97     29734
+
+avg / total       0.96      0.96      0.96     39679
+
+significant features to svcl, tfidf, unigrams
+['antibody' 'serum' 'samples' 'ref' 'rid' 'is' 'xref' 'may' 'fig' 'that']
+
+40000 samples, test_new_v2, tfidf, location, title feature, svm linear classifier_svcl_test_new_pubs
+ method       0.94      0.87      0.90      9932
+      other       0.96      0.98      0.97     29714
+
+avg / total       0.95      0.95      0.95     39646
+
+40000 docs, train_val, trained svcl model, on children of chunks
+             precision    recall  f1-score   support
+
+     method       0.95      0.60      0.74     64393
+      other       0.87      0.99      0.93    181903
+
+avg / total       0.89      0.89      0.88    246296
+
+40000 docs, test_new, trained svcl model, on children of chunks
+             precision    recall  f1-score   support
+
+     method       0.95      0.60      0.74     64180
+      other       0.87      0.99      0.93    181092
+
+avg / total       0.89      0.89      0.88    245272
+
+18-8-14
+40000 samples, train_val_v2 data, tfidf, location, title feature, svm linear classifier_train
+             precision    recall  f1-score   support
+
+     method       0.96      0.96      0.96      1309
+      other       0.99      0.99      0.99      5600
+
+avg / total       0.98      0.98      0.98      6909
