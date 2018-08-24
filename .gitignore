@@ -1,4 +1,5 @@
 project_notebook.txt
+__pycache__/
 excel_data/
 constant_lists/
 java/
