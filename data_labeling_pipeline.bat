@@ -1,5 +1,0 @@
-python data_labeling_methods.py
-python data_labeling_conclusions.py
-python data_labeling_results.py
-python data_labeling_introduction.py
-python save_training_data.py
