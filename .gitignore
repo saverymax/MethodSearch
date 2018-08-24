@@ -1,5 +1,8 @@
 project_notebook.txt
 excel_data/
+__pycache__/
+.ipynb_checkpoints/
+reports/
 constant_lists/
 java/
 models/
@@ -8,5 +11,6 @@ full_texts_all/
 full_texts_sample/
 methods_xml/
 no_methods_xml/
+predictions/
 xml_per_line_1200_jim
 test_psql.py
