@@ -1,7 +1,5 @@
 project_notebook.txt
 excel_data/
-__pycache__/
-.ipynb_checkpoints/
 reports/
 constant_lists/
 java/
