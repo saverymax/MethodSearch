@@ -17,13 +17,14 @@ class parser():
 
     def __init___(self):
         """
-        initiate parser
+        initiate parser. Nothing is needed here at the moment
         """
         pass
 
     def iterate_body(self, root):
         """
-        Iterate through sec tags in body
+        Iterate through sec tags in body. The root is provided by the
+        classify function in run_model.py
         """
 
         body = root.find('body')
@@ -45,12 +46,14 @@ class parser():
                     yield section_xml, location
 
                 except:
-                   print("Error iterating through the body;")
-                
+                    # if error in body, let's just move on to next section.
+                    print("Error iterating through the body")
 
     def iterate_sec(self, sec):
         """
-        iterate through children of sec to get more granularity
+        iterate through children of sec, as provided in run_model.py
+        These children will be written line by line to
+        methods_predicted_fullsec.txt
         """
 
         bit = le.fromstring(sec)
@@ -63,7 +66,10 @@ class parser():
 
     def get_title(self, section):
         """
-        get the title from the section
+        Get the title from the section. This method is used by get_location
+        where the title of a section is used as an estimation of location.
+        This method is also used in the code that writes the predicted
+        methods to file.
         """
 
         pattern_title = r'(?<=<title>)(.*?)(?=<\/title>)'
@@ -76,7 +82,8 @@ class parser():
 
     def get_location(self, section, body):
         """
-        get the location of the section of interest
+        Get the location of the section of interest, using the title as
+        estimation of the location of the section.
         """
 
         p = .5
@@ -86,13 +93,13 @@ class parser():
             search = re.search(pattern, body)
             if search:
                 p = search.start()/len(body)
-            else:
-                print(title, body)
 
         return p
 
 
 if __name__ == '__main__':
+
+    # for testing purposes
     fulltext_parser = parser()
     with open('C:\\Users\\saveryme\\Documents\\full_text_project\\xml_per_line_1200_jim') as f:
         for line in f:

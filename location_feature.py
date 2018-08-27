@@ -1,6 +1,5 @@
 """
-Module that uses normalized location as feature.
-The location is on a (0, 1) scale.
+
 """
 
 from sklearn.base import BaseEstimator
@@ -10,6 +9,9 @@ import pandas as pd
 class location_featurer(BaseEstimator):
     """
     Class for creating custom location feature
+    Module uses normalized location as feature:
+    location index of section / length of body
+
     """
 
     def fit(self, column, y = None):
@@ -21,7 +23,7 @@ class location_featurer(BaseEstimator):
 
     def transform(self, location):
         """
-        Round the location and return it in np array
+        Round the location to one decimal and return it in np array
         """
 
         # location_vector = np.round(column)

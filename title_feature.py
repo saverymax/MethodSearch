@@ -4,38 +4,38 @@ import numpy as np
 
 class title_featurer(BaseEstimator):
     """
-    Class for creating custom title feature
+    Class for creating custom title feature. This class will look
+    for the <title> tag in a section, and see if it matches any of the strings
+    in a predefined list of ways to say "methods".
     """
 
     def __init__(self):
         """
-        Init custom feature
+        Init custom title feature
         """
 
         with open('constant_list\\section_lists_custom_dict.json') as f:
             label_lists = json.load(f)
-
         self.label_list = label_lists['methods']
 
     def fit(self, df, y = None):
         """
         fit method just returns the data
         """
-
         return self
 
     def transform(self, df):
         """
-        See if the title is in the list jim gave me and give it a weight if so
+        See if the title is in the constant list and give it a binary weight
+        if so.
         """
 
         title_vector = []
         pattern = r'(?<=<title>)(.*?)(?=<\/title>)'
-        #for index, row in df.iterrows():
+
         for row in df:
             regex_search = re.search(pattern, row)
-            #if regex_search:
-                #print(regex_search.group(0))
+
             if regex_search:
                 if regex_search.group(0) in self.label_list:
                     title_vector.append(1)
