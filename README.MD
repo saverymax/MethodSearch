@@ -26,7 +26,7 @@ The fulltexts must be a text file with one fulltext per line.
 
 ## Dependencies
 
-Python 3.6.5<br>
+Python 3<br>
 [sklearn](http://scikit-learn.org/stable/install.html)<br>
 [lxml](https://lxml.de/installation.html)<br>
 [nltk](http://www.nltk.org/install.html)<br>
