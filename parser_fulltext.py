@@ -33,7 +33,7 @@ class parser():
             body_text = le.tostring(body, encoding='unicode', method='text')
 
             for child in body:
-                #try:
+                try:
                     # convert the child to something the svm can handle
                     # I want the xml version for the classifier,
                     # and the text version so I can match strings
@@ -44,9 +44,9 @@ class parser():
                     location = self.get_location(section_text, body_text)
                     yield section_xml, location
 
-                #except:
-                #    print("Error iterating through the body;")
-                #    raise
+                except:
+                   print("Error iterating through the body;")
+                
 
     def iterate_sec(self, sec):
         """
