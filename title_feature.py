@@ -12,7 +12,7 @@ class title_featurer(BaseEstimator):
         Init custom feature
         """
 
-        with open('constants\\section_lists_custom_dict.json') as f:
+        with open('constant_lists\\section_lists_custom_dict.json') as f:
             label_lists = json.load(f)
 
         self.label_list = label_lists['methods']
@@ -39,8 +39,6 @@ class title_featurer(BaseEstimator):
             if regex_search:
                 if regex_search.group(0) in self.label_list:
                     title_vector.append(1)
-                else:
-                    title_vector.append(0)
             else:
                 title_vector.append(0)
 

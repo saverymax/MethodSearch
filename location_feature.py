@@ -1,5 +1,5 @@
 """
-Module that uses normalized location as feature. See location_distribution.ipynb for normalization computations
+Module that uses normalized location as feature.
 The location is on a (0, 1) scale.
 """
 
@@ -19,13 +19,13 @@ class location_featurer(BaseEstimator):
 
         return self
 
-    def transform(self, column):
+    def transform(self, location):
         """
         Round the location and return it in np array
         """
 
         # location_vector = np.round(column)
-        location_vector = column.round(1)
+        location_vector = np.round(location, 1)
         # round location
         X = np.array([location_vector]).T # need the transpose to convert from [1,32000] to [32000,1]
 

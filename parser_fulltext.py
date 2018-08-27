@@ -1,5 +1,13 @@
+"""
+Script to parse the list of serials indexed for online users:
+ftp://ftp.nlm.nih.gov/online/journals/
+The file contains the citation and indexing info for each serial,
+including indexing history and current status
+"""
+
 import lxml.etree as le
 import re
+from collections import Counter
 
 
 class parser():
@@ -19,16 +27,23 @@ class parser():
         """
 
         body = root.find('body')
+
         if body != None:
-            # get the length of the body here
-            #body_string = le.tostring(body, encoding = 'unicode', method = 'xml')
-            #body_len = len(body_string
+            # Need the body string to get the location
+            body_text = le.tostring(body, encoding='unicode', method='text')
+
             for child in body:
                 try:
                     # convert the child to something the svm can handle
-                    section = le.tostring(child, encoding = 'unicode', method = 'xml')
+                    # I want the xml version for the classifier,
+                    # and the text version so I can match strings
+                    # in get_location
+                    section_xml = le.tostring(child, encoding='unicode', method='xml')
+                    section_text = le.tostring(child, encoding='unicode', method='text')
                     # find where section is in body, return that/body_len
-                    yield section
+                    location = self.get_location(section_text, body_text)
+                    yield section_xml, location
+
                 except BaseException as e:
                     print("Error iterating through the body;", e)
 
@@ -40,10 +55,10 @@ class parser():
         bit = le.fromstring(sec)
         len_bit = len(bit)
         if len_bit == 0:
-            yield le.tostring(bit, encoding = 'unicode', method = 'xml')
+            yield le.tostring(bit, encoding='unicode', method='xml')
         else:
             for child_bit in bit:
-                 yield le.tostring(child_bit, encoding = 'unicode', method = 'xml')
+                 yield le.tostring(child_bit, encoding='unicode', method='xml')
 
     def get_title(self, section):
         """
@@ -57,6 +72,24 @@ class parser():
             title = search.group(0)
 
         return title
+
+    def get_location(self, section, body):
+        """
+        get the location of the section of interest
+        """
+
+        p = .5
+        title = self.get_title(section)
+        if title != None:
+            pattern = r'{}'.format(title)
+            search = re.search(pattern, body)
+            if search:
+                p = search.start()/len(body)
+            else:
+                print(title, body)
+
+        return p
+
 
 if __name__ == '__main__':
     fulltext_parser = parser()
