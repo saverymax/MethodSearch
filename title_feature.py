@@ -39,8 +39,6 @@ class title_featurer(BaseEstimator):
             if regex_search:
                 if regex_search.group(0) in self.label_list:
                     title_vector.append(1)
-                else:
-                    title_vector.append(0)
             else:
                 title_vector.append(0)
 
