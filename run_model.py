@@ -47,7 +47,7 @@ def classify(args):
     # load your choice of model
     print("Loading model...\n")
     #model = joblib.load('method_classifier_trigrams.pkl')
-    model = joblib.load('models\\method_classifier_location_probability.pkl')
+    model = joblib.load('model\\method_classifier_location_probability.pkl')
     #model = joblib.load('method_classifier_probability.pkl')
 
     # Open file to write to
@@ -78,11 +78,11 @@ def classify(args):
 
             try:
                 root = le.fromstring(line)
+                # Get rid of namespaces titles can be matched
+                le.cleanup_namespaces(root)
                 # iterate through each section in the body of the article and classify the section
                 for section, location in fulltext_parser.iterate_body(root):
-                    print(location)
                     data_dict = {'text': [section], 'location': [location]}
-                    assert isinstance(section, str)
                     y_probability = model.predict_proba(data_dict)
 
                     # Save the method section of the predicted probability is greater than 50%
