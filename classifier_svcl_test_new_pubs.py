@@ -57,7 +57,7 @@ def test(df):
     # load model trained in classifier_test.py
     print("load model")
     #method_classifier = joblib.load('method_classifier_trigrams_probability.pkl')
-    method_classifier = joblib.load('method_classifier_location_probability.pkl')
+    method_classifier = joblib.load('model\\method_classifier_location_probability.pkl')
 
     # run model:
     print("run model")

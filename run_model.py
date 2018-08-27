@@ -80,8 +80,9 @@ def classify(args):
                 root = le.fromstring(line)
                 # iterate through each section in the body of the article and classify the section
                 for section, location in fulltext_parser.iterate_body(root):
-
+                    print(location)
                     data_dict = {'text': [section], 'location': [location]}
+                    assert isinstance(section, str)
                     y_probability = model.predict_proba(data_dict)
 
                     # Save the method section of the predicted probability is greater than 50%
