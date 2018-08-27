@@ -12,7 +12,7 @@ class title_featurer(BaseEstimator):
         Init custom feature
         """
 
-        with open('section_lists_custom_dict.json') as f:
+        with open('constants\\section_lists_custom_dict.json') as f:
             label_lists = json.load(f)
 
         self.label_list = label_lists['methods']

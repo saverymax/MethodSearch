@@ -47,7 +47,7 @@ def classify(args):
     # load your choice of model
     print("Loading model...\n")
     #model = joblib.load('method_classifier_trigrams.pkl')
-    model = joblib.load('models\\method_classifier_location_probability.pkl')
+    model = joblib.load('model\\method_classifier_location_probability.pkl')
     #model = joblib.load('method_classifier_probability.pkl')
 
     # Open file to write to

@@ -1,4 +1,6 @@
-# Repository for classification of method sections from full text articles
+# Classification of method sections
+
+This repository contains the SVM model and python modules used to identify method sections in full text articles. 
 
 
 To install:
@@ -18,7 +20,10 @@ The fulltexts.xml must contain one fulltext per line.
 ## Dependencies
 
 Python 3.6.5
+
 [sklearn](http://scikit-learn.org/stable/install.html)
+
 [lxml](https://lxml.de/installation.html)
+
 [nltk](http://www.nltk.org/install.html)
 
