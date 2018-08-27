@@ -1,5 +1,5 @@
 """
-Module that uses normalized location as feature. See location_distribution.ipynb for normalization computations
+Module that uses normalized location as feature.
 The location is on a (0, 1) scale.
 """
 
