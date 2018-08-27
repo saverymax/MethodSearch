@@ -10,7 +10,7 @@ git clone https://github.com/saverymax/MethodSearch.git
 
 To run the model from the windows command line:
 ```
-cd MethodSelector
+cd MethodSelector-master
 python run_model.py --path path\to\xml\fulltexts.txt
 
 ```
@@ -20,10 +20,7 @@ The fulltexts must be a text file with one fulltext per line.
 ## Dependencies
 
 Python 3.6.5
-
-[sklearn](http://scikit-learn.org/stable/install.html)
-
-[lxml](https://lxml.de/installation.html)
-
+[sklearn](http://scikit-learn.org/stable/install.html)\n
+[lxml](https://lxml.de/installation.html)\n
 [nltk](http://www.nltk.org/install.html)
 
