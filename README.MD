@@ -15,11 +15,12 @@ python run_model.py --path path\to\xml\fulltexts.txt
 
 ```
 
-For example:
+For example, the command below will pull the method sections from the sample texts provided with the repository. 
 ```
 python run_model.py --path C:\Users\saveryme\Documents\MethodSearch\sample_texts\sample_fulltexts.txt
 ```
-will pull the method sections from the sample texts provided with repository
+The methods are saved, line by line, in a .txt file in the predictions directory. The name of the file is currently 
+hard coded to methods_predicted_fullsec.txt
 
 The fulltexts must be a text file with one fulltext per line. 
 
