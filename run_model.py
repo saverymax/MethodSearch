@@ -27,7 +27,7 @@ from sklearn.svm import SVC
 
 def get_parser():
     """
-    Set up command line options.
+    Set up command line options. Currently, only path to file is an option
     """
 
     parser = argparse.ArgumentParser(description = "method classifier")
@@ -38,7 +38,9 @@ def get_parser():
 
 def classify(args):
     """
-    main function for model
+    Main function to run the model. This will initiate the parser,
+    load the model, and, iterating through the sections, identify the
+    method sections and write them to methods_predicted_fullsec.txt
     """
 
     # init parser
@@ -46,9 +48,7 @@ def classify(args):
 
     # load your choice of model
     print("Loading model...\n")
-    #model = joblib.load('method_classifier_trigrams.pkl')
     model = joblib.load('model\\method_classifier_location_probability.pkl')
-    #model = joblib.load('method_classifier_probability.pkl')
 
     # Open file to write to
     method_file = open("predictions\\methods_predicted_fullsec.txt" , "w", encoding="utf")
@@ -57,7 +57,6 @@ def classify(args):
 
     cnt = 0
     # access the full texts!
-    #with open('C:\\Users\\saveryme\\Documents\\full_text_project\\xml_per_line_1200_jim') as f:
     with open(args.path) as f:
 
         print("Reading and predicting...\n")
@@ -110,7 +109,7 @@ def classify(args):
 
 
 if __name__ == "__main__":
-    # get the arguments and run the model!
+    # get the arguments and run the model
     parser = get_parser()
     args = parser.parse_args()
     classify(args)

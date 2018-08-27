@@ -46,6 +46,7 @@ class parser():
                     yield section_xml, location
 
                 except:
+                    # if error in body, let's just move on to next section.
                     print("Error iterating through the body")
 
     def iterate_sec(self, sec):
@@ -82,7 +83,7 @@ class parser():
     def get_location(self, section, body):
         """
         Get the location of the section of interest, using the title as
-        estimation of the location as the section.
+        estimation of the location of the section.
         """
 
         p = .5
