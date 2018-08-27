@@ -1,4 +1,4 @@
-##Repository for classification of method sections from full text articles
+# Repository for classification of method sections from full text articles
 
 
 To install:
@@ -15,7 +15,7 @@ python run_model.py --path path\to\xml\fulltexts.xml
 The fulltexts.xml must contain one fulltext per line. 
 
 
-##Dependencies
+## Dependencies
 
 Python 3.6.5
 [sklearn](http://scikit-learn.org/stable/install.html)
