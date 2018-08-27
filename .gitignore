@@ -1,4 +1,5 @@
 project_notebook.txt
+.ipynb_checkpoints
 __pycache__/
 excel_data/
 constant_lists/
@@ -11,3 +12,5 @@ methods_xml/
 no_methods_xml/
 xml_per_line_1200_jim
 test_psql.py
+reports
+plots
