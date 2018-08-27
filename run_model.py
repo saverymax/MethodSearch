@@ -78,9 +78,10 @@ def classify(args):
 
             try:
                 root = le.fromstring(line)
+                # Get rid of namespaces titles can be matched
+                le.cleanup_namespaces(root)
                 # iterate through each section in the body of the article and classify the section
                 for section, location in fulltext_parser.iterate_body(root):
-
                     data_dict = {'text': [section], 'location': [location]}
                     y_probability = model.predict_proba(data_dict)
 
