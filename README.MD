@@ -32,3 +32,6 @@ Python 3.6.5<br>
 [nltk](http://www.nltk.org/install.html)<br>
 
 ## Debugging
+
+The parser may encounter xml formatting errors. In these cases, the article will be skipped and the error and line number of the 
+of the article will be printed.
