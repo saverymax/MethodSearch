@@ -10,7 +10,7 @@ git clone https://github.com/saverymax/MethodSearch.git
 
 To run the model from the windows command line:
 ```
-cd MethodSelector-master
+cd MethodSelector
 python run_model.py --path path\to\xml\fulltexts.txt
 
 ```
