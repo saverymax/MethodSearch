@@ -1,10 +1,3 @@
-"""
-Script to parse the list of serials indexed for online users:
-ftp://ftp.nlm.nih.gov/online/journals/
-The file contains the citation and indexing info for each serial,
-including indexing history and current status
-"""
-
 import lxml.etree as le
 import re
 from collections import Counter
@@ -95,20 +88,3 @@ class parser():
                 p = search.start()/len(body)
 
         return p
-
-
-if __name__ == '__main__':
-
-    # for testing purposes
-    fulltext_parser = parser()
-    with open('C:\\Users\\saveryme\\Documents\\full_text_project\\xml_per_line_1200_jim') as f:
-        for line in f:
-            print(line)
-            #print(line)
-            pattern = r'\d+\|'
-            pattern1 = r'\d+'
-            pmid = re.match(pattern1, line).group(0)
-            line = re.sub(pattern, '', line)
-            root = le.fromstring(line)
-            for child in fulltext_parser.iterate_body(root):
-                print(child)
