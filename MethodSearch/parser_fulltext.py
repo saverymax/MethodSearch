@@ -1,10 +1,3 @@
-"""
-Script to parse the list of serials indexed for online users:
-ftp://ftp.nlm.nih.gov/online/journals/
-The file contains the citation and indexing info for each serial,
-including indexing history and current status
-"""
-
 import lxml.etree as le
 import re
 from collections import Counter
