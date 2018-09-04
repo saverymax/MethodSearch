@@ -88,20 +88,3 @@ class parser():
                 p = search.start()/len(body)
 
         return p
-
-
-if __name__ == '__main__':
-
-    # for testing purposes
-    fulltext_parser = parser()
-    with open('C:\\Users\\saveryme\\Documents\\full_text_project\\xml_per_line_1200_jim') as f:
-        for line in f:
-            print(line)
-            #print(line)
-            pattern = r'\d+\|'
-            pattern1 = r'\d+'
-            pmid = re.match(pattern1, line).group(0)
-            line = re.sub(pattern, '', line)
-            root = le.fromstring(line)
-            for child in fulltext_parser.iterate_body(root):
-                print(child)
