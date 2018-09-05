@@ -2,10 +2,27 @@
 
 This repository contains the SVM model and python modules used to identify method sections in full text articles.
 
+Note that you need to have Python 3 and pip already installed on your system. To check
+your version of python
+```
+python --version
+```
+This installation assumes you have Anaconda installed. This makes everything easier,
+as it will come with some version of most of the dependencies.
 
-To install:
+If you have Anaconda, update it with
+```
+conda update conda
+```
+
+If that is all settled, install MethodSearch:
 ```
 git clone https://github.com/saverymax/MethodSearch.git
+```
+And install/update the dependencies
+```
+cd MethodSelector
+pip freeze -r requirements.txt
 ```
 
 To run the model from the windows command line:
@@ -14,7 +31,6 @@ cd MethodSelector
 python run_model.py --path path\to\xml\fulltexts.txt
 
 ```
-
 For example, if you have successfully navigated to the MethodSearch directory,
 the command below will pull the method sections from the sample texts provided with the repository.
 ```
@@ -27,7 +43,7 @@ The fulltexts must be a text file with one fulltext per line.
 ## Dependencies
 
 Python 3<br>
-[sklearn](http://scikit-learn.org/stable/install.html) version 0.19.2 <br>
+[sklearn](http://scikit-learn.org/stable/install.html) version 0.19.1 <br>
 [pandas](https://pandas.pydata.org/pandas-docs/stable/install.html) version 0.23.0 <br>
 [lxml](https://lxml.de/installation.html) version 4.2.1 <br>
 [numpy](http://www.numpy.org/) version 1.14.3 <br>
