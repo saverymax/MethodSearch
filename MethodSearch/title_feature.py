@@ -1,6 +1,7 @@
 from sklearn.base import BaseEstimator
 import re
 import numpy as np
+from pathlib import Path
 
 class title_featurer(BaseEstimator):
     """
@@ -14,7 +15,9 @@ class title_featurer(BaseEstimator):
         Init custom title feature
         """
 
-        with open('constant_list\\section_lists_custom_dict.json') as f:
+        constant_parts = ["constant_list", "section_lists_custom_dict.json"]
+        constant_path = Path.cwd().joinpath(*constant_parts)
+        with open(constant_path) as f:
             label_lists = json.load(f)
         self.label_list = label_lists['methods']
 
@@ -35,7 +38,6 @@ class title_featurer(BaseEstimator):
 
         for row in df:
             regex_search = re.search(pattern, row)
-
             if regex_search:
                 if regex_search.group(0) in self.label_list:
                     title_vector.append(1)
