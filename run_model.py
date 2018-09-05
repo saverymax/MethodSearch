@@ -12,13 +12,15 @@ methods_predicted_fullsec.txt, line by line.
 Should there be an xml error, the parser will print the
 line number in the input file and skip that article.
 
-Information regarding the models can be found in README.md
+Information regarding the details of the model can be found in README.md
 """
 
+from pathlib import Path
 import parser_fulltext
 import re
 import argparse
 import lxml.etree as le
+from lxml import objectify
 from title_feature import title_featurer
 from location_feature import location_featurer
 from item_select import ItemSelector
@@ -48,12 +50,16 @@ def classify(args):
 
     # load your choice of model
     print("Loading model...\n")
-    model = joblib.load('model\\method_classifier_location_probability.pkl')
+    model_parts = ["model", "method_classifier_location_probability.pkl"]
+    model_path = Path.cwd().joinpath(*model_parts)
+    model = joblib.load(model_path)
 
     # Open file to write to
-    method_file = open("predictions\\methods_predicted_fullsec.txt" , "w", encoding="utf")
+    pred_parts = ["predictions", "methods_predicted_fullsec.txt"]
+    pred_path = Path.cwd().joinpath(*pred_parts)
+    method_file = open(pred_path, "w", encoding="utf")
     method_file.close()
-    method_file = open("predictions\\methods_predicted_fullsec.txt" , "a+", encoding="utf")
+    method_file = open(pred_path, "a+", encoding="utf")
 
     cnt = 0
     # access the full texts!
@@ -76,9 +82,9 @@ def classify(args):
             line = re.sub(pattern_carriage, '', line)
 
             try:
+                # need to convert to xml to get the body of the text
                 root = le.fromstring(line)
-                # Get rid of namespaces titles can be matched
-                le.cleanup_namespaces(root)
+
                 # iterate through each section in the body of the article and classify the section
                 for section, location in fulltext_parser.iterate_body(root):
                     data_dict = {'text': [section], 'location': [location]}
@@ -93,10 +99,10 @@ def classify(args):
                         # method_line = "{0}|{1}|{2}|{3}|{4}\n".format(pmid, section_title, methods, other, section)
                         # method_file.write(method_line)
 
-                        # or write the children of the section, which might
-                        #make for better readability:
+                        # or write the children of the section, 
                         for section_child in fulltext_parser.iterate_sec(section):
                             section_title = fulltext_parser.get_title(section_child)
+                            #print(section_title)
                             method_line = "{0}|{1}|{2}|{3}|{4}\n".format(pmid, section_title, methods, other, section_child)
                             method_file.write(method_line)
 
