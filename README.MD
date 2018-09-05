@@ -27,9 +27,10 @@ The fulltexts must be a text file with one fulltext per line.
 ## Dependencies
 
 Python 3<br>
-[sklearn](http://scikit-learn.org/stable/install.html) version 0.19.1<br>
+[sklearn](http://scikit-learn.org/stable/install.html) version 0.19.2 <br>
+[pandas](https://pandas.pydata.org/pandas-docs/stable/install.html) version 0.23.0 <br>
 [lxml](https://lxml.de/installation.html) version 4.2.1 <br>
-[nltk](http://www.nltk.org/install.html) version 3.3 <br>
+[numpy](http://www.numpy.org/) version 1.14.3 <br>
 
 ## Model and Features
 
