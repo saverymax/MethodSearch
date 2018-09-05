@@ -10,6 +10,7 @@ full_texts_all/
 full_texts_sample/
 methods_xml/
 no_methods_xml/
+predictions/*
 xml_per_line_jim.xml
 xml_per_line_1200_jim
 test_psql.py
