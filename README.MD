@@ -15,12 +15,12 @@ python run_model.py --path path\to\xml\fulltexts.txt
 
 ```
 
-For example, the command below will pull the method sections from the sample texts provided with the repository.
+For example, if you have successfully navigated to the MethodSearch directory,
+the command below will pull the method sections from the sample texts provided with the repository.
 ```
-python run_model.py --path C:\Users\saveryme\Documents\MethodSearch\sample_texts\sample_fulltexts.txt
+python run_model.py --path sample_texts\sample_fulltexts.txt
 ```
-The methods are saved, line by line, in a .txt file in the predictions directory. The name of the file is currently
-hard coded to methods_predicted_fullsec.txt
+The methods are saved, line by line, in a .txt file in the predictions directory. The name of the file is currently hard coded to methods_predicted_fullsec.txt
 
 The fulltexts must be a text file with one fulltext per line.
 
@@ -30,6 +30,17 @@ Python 3<br>
 [sklearn](http://scikit-learn.org/stable/install.html) version 0.19.1<br>
 [lxml](https://lxml.de/installation.html) version 4.2.1 <br>
 [nltk](http://www.nltk.org/install.html) version 3.3 <br>
+
+## Model and Features
+
+The model currently used can be found in the model directory. It is accessed
+in run_model.py. It is an SVM with a linear kernel, and default hyperparameters.
+To see defaults and for more details go to http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html. The features used
+are as follow:
+  1. TF-IDF bag-of-words of section
+  2. Location of section
+  3. Binary label indicating whether or not title of section appears in a constant
+  list of synonyms/phrases for "method". 
 
 ## Debugging
 
