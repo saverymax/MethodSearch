@@ -2,18 +2,19 @@
 
 This repository contains the SVM model and python modules used to identify method sections in full text articles.
 
-Note that you need to have Python 3 and pip already installed on your system. To check
-your version of python
+
+Note that you need to have Python 3 and pip (python's package manager) already installed on your system. To check your version of python
 ```
 python --version
 ```
-This installation assumes you have Anaconda installed. This makes everything easier,
-as it will come with some version of most of the dependencies.
+This installation works with or without Ancaconda. But, if you have it installed,
+everything will probably be easier as it will come with some version of most of the dependencies.
 
 If you have Anaconda, update it with
 ```
 conda update conda
 ```
+
 
 If that is all settled, install MethodSearch:
 ```
