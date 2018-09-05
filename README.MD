@@ -9,14 +9,13 @@ python --version
 ```
 This installation works with or without Ancaconda. But, if you have it installed,
 everything will probably be easier as it will come with some version of most of the dependencies.
-Plus it makes for easier management of python versions. 
+Plus it makes for easier management of python versions.
 
 If you have Anaconda, update it with
 ```
 conda update conda
 ```
-<br>
-Well, if that is all settled, install MethodSearch:
+<br> Well, if that is all settled, install MethodSearch:
 ```
 git clone https://github.com/saverymax/MethodSearch.git
 ```
