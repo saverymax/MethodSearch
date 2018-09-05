@@ -22,18 +22,18 @@ git clone https://github.com/saverymax/MethodSearch.git
 ```
 And install/update the dependencies
 ```
-cd MethodSelector
+cd MethodSearch
 pip freeze -r requirements.txt
 ```
 
-To run the model from the windows command line:
+To run the model from the windows command line, make sure you're in the MethodSearch
+directory and run
 ```
-cd MethodSelector
 python run_model.py --path path\to\xml\fulltexts.txt
 
 ```
-For example, if you have successfully navigated to the MethodSearch directory,
-the command below will pull the method sections from the sample texts provided with the repository.
+For example, the command below will pull the method sections from the
+sample texts provided with the repository.
 ```
 python run_model.py --path sample_texts\sample_fulltext.txt
 ```
@@ -56,9 +56,9 @@ in run_model.py. I used an SVM with a linear kernel, and default hyperparameters
 To see defaults and for more details go to http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html. The features used
 are as follow:
   1. TF-IDF bag-of-words
-  2. Location of section
+  2. Location of section, computed in the module location_feature.py
   3. Binary label indicating whether or not title of section appears in a constant
-  list of synonyms/phrases for "method".
+  list of synonyms/phrases for "method". This is computed in title_feature.py
 
 ## Debugging
 
