@@ -18,7 +18,7 @@ python run_model.py --path path\to\xml\fulltexts.txt
 For example, if you have successfully navigated to the MethodSearch directory,
 the command below will pull the method sections from the sample texts provided with the repository.
 ```
-python run_model.py --path sample_texts\sample_fulltexts.txt
+python run_model.py --path sample_texts\sample_fulltext.txt
 ```
 The methods are saved, line by line, in a .txt file in the predictions directory. The name of the file is currently hard coded to methods_predicted_fullsec.txt
 
