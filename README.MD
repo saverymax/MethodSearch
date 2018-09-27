@@ -22,7 +22,7 @@ git clone https://github.com/saverymax/MethodSearch.git
 And install/update the dependencies
 ```
 cd MethodSearch
-pip freeze -r requirements.txt
+pip install -r requirements.txt
 ```
 
 To run the model from the windows command line, make sure you're in the MethodSearch
