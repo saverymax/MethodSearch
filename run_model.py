@@ -57,9 +57,9 @@ def classify(args):
     # Open file to write to
     pred_parts = ["predictions", "methods_predicted_fullsec.txt"]
     pred_path = Path.cwd().joinpath(*pred_parts)
-    method_file = open(pred_path, "w", encoding="utf")
+    method_file = open(str(pred_path), "w", encoding="utf")
     method_file.close()
-    method_file = open(pred_path, "a+", encoding="utf")
+    method_file = open(str(pred_path), "a+", encoding="utf")
 
     cnt = 0
     # access the full texts!
@@ -99,7 +99,7 @@ def classify(args):
                         # method_line = "{0}|{1}|{2}|{3}|{4}\n".format(pmid, section_title, methods, other, section)
                         # method_file.write(method_line)
 
-                        # or write the children of the section, 
+                        # or write the children of the section,
                         for section_child in fulltext_parser.iterate_sec(section):
                             section_title = fulltext_parser.get_title(section_child)
                             #print(section_title)
